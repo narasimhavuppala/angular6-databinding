@@ -1,0 +1,41 @@
+<!--Template reference variables: keyup for DM Refresh-->
+<h1>Teplate Reference Variables</h1>
+<div class="container-fluid">
+    <input class="form-control" #phone value="Template Reference Variables" (keyup)="0">
+    <br/>
+    <span class="form-control-fluid">{{phone.value}}</span>
+
+    <!--Template refernce with p/div/h1-->
+    <p class="form-control-fluid" #pp>Some Paragraph</p>
+    <br/>
+    <pre class="form-control-flud">{{pp.innerText}}</pre>
+
+</div>
+
+
+<!--Propert Binding-->
+<h1>Property Binding</h1>
+<div class="container-fluid">
+
+    <input class="form-control" type="text" [value]="username">
+</div>
+<!--Event Binding-->
+
+<br/>
+<br/>
+<br/> v
+<h1>Event Binding(see in console)</h1>
+<div class="contaainer-fluid">
+    <button class="btn btn-primary" (click)="mybutton(phone.value)">Click Me</button>
+</div>
+
+<br/>
+<br/>
+<br/>
+<h1>Two way data binding</h1>
+
+<!--Two way Data binding using ngModel-->
+<div class="container-fluid">
+    <input class="form-control-flud" type="text" [(ngModel)]="username">
+    <pre class="form-control-flud">{{username}}</pre>
+</div>
