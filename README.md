@@ -4,4 +4,5 @@
    - Adding BootStrap to ANgular Project
    - Property Binding
    - Event Binding
-   - Two Way databinding
+   - Two Way databinding with NgModel
+   - NgModel is part of the Froms Module

@@ -1,0 +1,9 @@
+.show-class {
+  visibility: visible;
+  color:blue
+}
+
+.hide-class {
+  visibility: hidden;
+  color: green
+}

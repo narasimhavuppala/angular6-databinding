@@ -3,16 +3,20 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { StrDirectiveComponent } from './str-directive/str-directive.component';
+import { AttrDirectiveComponent } from './attr-directive/attr-directive.component'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StrDirectiveComponent,
+    AttrDirectiveComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AttrDirectiveComponent]
 })
 export class AppModule { }
