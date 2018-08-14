@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start-ci": "ng serve  component-interaction",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

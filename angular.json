@@ -122,6 +122,125 @@
           }
         }
       }
+    },
+    "component-interaction": {
+      "root": "projects/component-interaction/",
+      "sourceRoot": "projects/component-interaction/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/component-interaction",
+            "index": "projects/component-interaction/src/index.html",
+            "main": "projects/component-interaction/src/main.ts",
+            "polyfills": "projects/component-interaction/src/polyfills.ts",
+            "tsConfig": "projects/component-interaction/tsconfig.app.json",
+            "assets": [
+              "projects/component-interaction/src/favicon.ico",
+              "projects/component-interaction/src/assets"
+            ],
+            "styles": [
+              "projects/component-interaction/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/component-interaction/src/environments/environment.ts",
+                  "with": "projects/component-interaction/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "component-interaction:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "component-interaction:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "component-interaction:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/component-interaction/src/test.ts",
+            "polyfills": "projects/component-interaction/src/polyfills.ts",
+            "tsConfig": "projects/component-interaction/tsconfig.spec.json",
+            "karmaConfig": "projects/component-interaction/karma.conf.js",
+            "styles": [
+              "projects/component-interaction/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/component-interaction/src/favicon.ico",
+              "projects/component-interaction/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/component-interaction/tsconfig.app.json",
+              "projects/component-interaction/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "component-interaction-e2e": {
+      "root": "projects/component-interaction-e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/component-interaction-e2e/protractor.conf.js",
+            "devServerTarget": "component-interaction:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "component-interaction:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/component-interaction-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular-databinding"
