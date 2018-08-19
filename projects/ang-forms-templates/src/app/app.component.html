@@ -1,32 +1,36 @@
 <h2> Template Driven Forms</h2>
 <div class="container-fluid">
-  <form #loginform="ngForm" class="container-fluid">
+  <form #loginform="ngForm" class="container-fluid" (ngSubmit)="onSubmit();loginform.reset()">
     <div class="form-group">
 
-      <label for="un"> User Name:</label>
+      <label for="un"> User Name</label>
 
       <input id="un" name="username" type="text" class="form-control" [(ngModel)]="username" required minlength="6" #name="ngModel">
-
-      <div *ngIf="name.errors.required" class="alert alert-danger">
-        User Name is Mandatory
+      <div *ngIf="!name.valid && name.errors">
+        <div *ngIf="name.errors.required" class="alert alert-danger">
+          User Name is Mandatory
+        </div>
+        <div *ngIf="name.errors && name.errors.minlength && !name.valid" class="alert alert-danger">
+          User Name is Minimum length is {{name.errors.minlength.requiredLength}}
+        </div>
       </div>
-
 
     </div>
     <div class="form-group">
 
       <label for="myp"> Password:</label>
 
-      <input id="myp" name="password" type="password" class="form-control" [(ngModel)]="password" required minlength="7" #pwd="ngModel">
+      <input id="myp" name="password" type="password" class="form-control" [(ngModel)]="password" required #pwd="ngModel">
     </div>
-    {{pwd.className}}
-    <div *ngIf="pwd.errors.required" class="alert alert-danger">
-      Min Password length is 7
+
+    <div *ngIf="!pwd.valid && pwd.errors && pwd.errors.required" class="alert alert-danger">
+      Password is requied
+      <!--{{pwd.errors|json}}-->
     </div>
     <div class="form-group">
 
-      <input type="submit" value="Login" class="btn btn-success" [disabled]="loginform.form.status==VALID">
+      <input type="submit" value="Login" class="btn btn-success" [disabled]="!loginform.valid">
     </div>
-    <!-- {{loginform|json}}-->
+    <!--{{loginform|json}}-->
   </form>
 </div>

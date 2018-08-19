@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.css';
-.ng-invalid:not(form) {
+.ng-pristine .ng-invalid:not(form) {
  
  border: 1px solid red;
 }
