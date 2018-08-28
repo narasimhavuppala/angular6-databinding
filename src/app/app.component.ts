@@ -10,7 +10,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 export class AppComponent {
   name = "Angular";
   username = "Test";
-  mybutton(ss: KeyboardEvent) {
+  mybutton(ss: Event) {
     console.log(ss);
 
   }

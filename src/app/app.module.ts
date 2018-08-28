@@ -17,6 +17,6 @@ import { AttrDirectiveComponent } from './attr-directive/attr-directive.componen
     FormsModule
   ],
   providers: [],
-  bootstrap: [AttrDirectiveComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
